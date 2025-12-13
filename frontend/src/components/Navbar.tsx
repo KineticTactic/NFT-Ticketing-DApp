@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { Wallet } from "./Wallet";
 import { Link, useNavigate } from "react-router-dom";
 
