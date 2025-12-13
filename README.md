@@ -1,5 +1,9 @@
 # 🎟️ NFT Ticketing dApp
 
+### [Check it out here!](https://nft-ticketing.netlify.app/marketplace)
+
+![Ticketing DApp](assets/screenshot.png)
+
 A decentralized ticketing system where users can mint NFTs (ERC-721) and list, buy, and manage tickets through a marketplace smart contract. Built using:
 
 - Hardhat + Ignition (Solidity development & deployment)
