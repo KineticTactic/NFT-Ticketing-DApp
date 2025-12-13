@@ -25,3 +25,5 @@ ignition/deployments
 ignition/state
 
 frontend/node_modules
+
+.DS_Store
