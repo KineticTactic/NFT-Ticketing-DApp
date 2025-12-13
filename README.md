@@ -1,6 +1,6 @@
 # 🎟️ NFT Ticketing dApp
 
-### [Check it out here!](https://nft-ticketing.netlify.app/marketplace)
+### [Check it out here!](https://nft-ticketing.netlify.app)
 
 ![Ticketing DApp](assets/screenshot.png)
 
