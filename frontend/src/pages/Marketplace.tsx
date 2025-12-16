@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { fetchAllListings } from "@/lib/wallet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TokenCard } from "@/components/Token";
+import { useSepoliaCheck } from "@/providers/SepoliaCheck";
+import { Link } from "react-router-dom";
 
 type Listing = {
   tokenId: number;
@@ -12,6 +14,7 @@ type Listing = {
 export function Marketplace() {
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
+  const wrongNetwork = useSepoliaCheck();
 
   async function load() {
     try {
@@ -46,7 +49,7 @@ export function Marketplace() {
       )}
 
       {!loading && listings.length === 0 && (
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground text-center">
           No tickets currently listed for sale.
         </p>
       )}
@@ -65,6 +68,14 @@ export function Marketplace() {
               }}
             />
           ))}
+        </div>
+      )}
+
+      {wrongNetwork && (
+        <div className="mb-6 rounded-lg border border-destructive/30 bg-destructive/10 p-4 text-center text-sm">
+          Wrong network detected. Please switch your wallet to{" "}
+          <strong>Sepolia</strong> and refresh. <br />
+          Visit our <Link to="/faq" className="underline">FAQ page</Link> for more information.
         </div>
       )}
     </div>

@@ -5,12 +5,15 @@ import { TokenCard } from "@/components/Token";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { useSepoliaCheck } from "@/providers/SepoliaCheck";
+import { Link } from "react-router-dom";
 
 export function MyTokens() {
   const { address } = useWallet();
   const [tokenIds, setTokenIds] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
   const [minting, setMinting] = useState(false);
+  const wrongNetwork = useSepoliaCheck();
 
   async function load() {
     if (!address) return;
@@ -91,6 +94,14 @@ export function MyTokens() {
               />
             ))}
           </div>
+        </div>
+      )}
+
+      {wrongNetwork && (
+        <div className="mb-6 rounded-lg border border-destructive/30 bg-destructive/10 p-4 text-center text-sm">
+          Wrong network detected. Please switch your wallet to{" "}
+          <strong>Sepolia</strong> and refresh. <br />
+          Visit our <Link to="/faq" className="underline">FAQ page</Link> for more information.
         </div>
       )}
     </div>

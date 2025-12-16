@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useWallet } from "@/providers/WalletProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Hero() {
   const { address, connectWallet } = useWallet();
@@ -40,6 +40,16 @@ export function Hero() {
             </Button>
           </>
         )}
+      </div>
+
+      <div className="mt-8">
+        <p className="text-muted-foreground text-sm">
+          Having trouble accessing the app? Check out the{" "}
+          <Link to="/faq"className="text-secondary-foreground">
+            FAQ page.
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </p>
       </div>
     </section>
   );
